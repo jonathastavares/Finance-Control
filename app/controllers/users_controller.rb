@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate, only: %i[edit update show destroy]
+  skip_before_action :verify_authenticity_token, only:[:update]
   def new
     redirect_to root_path if logged_in?
     @user = User.new
@@ -16,7 +17,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
+    if current_user.id != @user.id
+      redirect_to root_path
+    end
   end
 
   def update
@@ -30,6 +34,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @entity = Entity.new
     @user = User.find(current_user.id)
   end
 

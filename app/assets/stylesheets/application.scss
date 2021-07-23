@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+body {
+  height: 968px;
+  background-image: linear-gradient(to bottom, #1f528b, #3778c2)
+}
+
+a:hover {
+  color: rgb(219, 219, 219) !important;
+}
+
+.left-menu-item {
+  margin: 20px 0;
+}
+
+.navbar {
+  background-color: #3778c2;
+}
+
+.navbar-title {
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+ 
