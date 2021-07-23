@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class EntitiesController < ApplicationController
   def new
     @entity = Entity.new
@@ -30,7 +28,7 @@ class EntitiesController < ApplicationController
 
   def assign
     @entity = Entity.find(params[:entity_id])
-    if params[:id]
+    return unless params[:id]
       @entity.group_id = params[:id]
       if @entity.save
         flash[:notice] = 'You have assigned this transaction!'

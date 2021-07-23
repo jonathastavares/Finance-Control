@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe Entity, type: :model do
   context 'Entity/User relations' do

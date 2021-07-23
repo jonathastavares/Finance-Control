@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
   before_action :authenticate, only: %i[edit update show destroy]
   skip_before_action :verify_authenticity_token, only: [:update]

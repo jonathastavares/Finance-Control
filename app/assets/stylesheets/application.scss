@@ -15,7 +15,7 @@
  */
 body {
   min-height: 968px;
-  background-image: linear-gradient(to bottom, #1f528b, #3778c2)
+  background-image: linear-gradient(to bottom, #1f528b, #3778c2);
 }
 
 a {
@@ -28,17 +28,21 @@ a {
   color: black !important;
 }
 
-.white, th, td, .input-buttons {
+.white,
+th,
+td,
+.input-buttons {
   color: white !important;
 }
 
 textarea {
-  color: #ff0000;
+  color: #f00;
 }
 
 .amount-box {
   background-color: white;
   height: 50px;
+  
   p {
     font-size: 1.5em;
     margin: 0;

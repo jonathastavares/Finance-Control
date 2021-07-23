@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 require 'capybara/rails'
 RSpec.describe 'Integrations', type: :system do
