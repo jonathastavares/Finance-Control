@@ -11,7 +11,7 @@ class EntitiesController < ApplicationController
       redirect_to transactions_path
     else
       flash[:alert] = "Something went wrong!"
-      redirect_to root_path
+      redirect_to transactions_path
     end
   end
 
@@ -27,6 +27,23 @@ class EntitiesController < ApplicationController
       flash[:alert] = 'Something went wrong, please try again'
       redirect_to transactions_path
     end
+  end
+
+  def assign
+    @entity = Entity.find(params[:entity_id])
+    unless !params[:id]
+      @entity.group_id = params[:id]
+      if @entity.save
+        flash[:notice] = 'You have assigned this transaction!'
+        redirect_to transactions_path
+      else
+        flash[:alert] = 'Something went wrong, please try again'
+        redirect_to transactions_path
+      end
+    end
+  end
+
+  def external_transactions
   end
 
   private

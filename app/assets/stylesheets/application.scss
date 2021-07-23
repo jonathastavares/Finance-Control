@@ -24,6 +24,10 @@ a {
   font-weight: 600 !important;
 }
 
+.groups {
+  color: black !important;
+}
+
 .white, th, td, .input-buttons {
   color: white !important;
 }
@@ -80,8 +84,14 @@ textarea {
   background-color: #5fb523;
 }
 
+.btn-success {
+  background-color: #5fb523 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
 .bottom-link {
   align-self: center;
-  padding: 10px 125px !important;
+  padding: 10px 100px !important;
   border: 2px white solid !important;
 }

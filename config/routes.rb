@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   post 'entities', to: 'entities#create'
   get 'transactions', to: 'entities#index'
   get 'transactions/new', to: 'entities#new'
+  get 'external_transactions', to: 'entities#external_transactions'
+  get 'external_transactions/assign', to: 'entities#assign'
+  post 'groups', to: 'groups#create'
+  get 'groups', to: 'groups#index'
+  get 'groups/new', to: 'groups#new'
+  get 'group/transactions', to: 'groups#transactions'
   resources :users do
     post 'edit', to: 'users#update'
     patch 'update', to: 'users#update'
