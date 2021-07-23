@@ -62,7 +62,7 @@
 
 ## Live Version
 
-- Check out the [Live Version.](https://murmuring-savannah-42142.herokuapp.com/)
+- Check out the [Live Version.](https://finance-control-jonathas.herokuapp.com/)
 
 # Author
 
