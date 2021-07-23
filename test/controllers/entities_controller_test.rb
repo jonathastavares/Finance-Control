@@ -1,7 +1,9 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class EntitiesControllerTest < ActionDispatch::IntegrationTest
-  test "should get create" do
+  test 'should get create' do
     get entities_create_url
     assert_response :success
   end

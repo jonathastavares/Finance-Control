@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate, only: %i[edit update show destroy]
-  skip_before_action :verify_authenticity_token, only:[:update]
+  skip_before_action :verify_authenticity_token, only: [:update]
   def new
     redirect_to root_path if logged_in?
     @user = User.new
@@ -18,9 +20,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if current_user.id != @user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id != @user.id
   end
 
   def update
@@ -45,13 +45,12 @@ class UsersController < ApplicationController
       flash[:alert] = 'Something went wrong, please try again'
       redirect_to root_path
     end
-    
   end
 
   private
 
   def authenticate
-    redirect_to login_path if !logged_in?
+    redirect_to login_path unless logged_in?
   end
 
   def user_params

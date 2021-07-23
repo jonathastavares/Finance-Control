@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def show_transactions
     content = ''
@@ -15,7 +17,7 @@ module ApplicationHelper
           </div>
         </div>"
     end
-    return content.html_safe
+    content.html_safe
   end
 
   def show_external_transactions
@@ -34,7 +36,7 @@ module ApplicationHelper
           </div>
         </div>"
     end
-    return content.html_safe
+    content.html_safe
   end
 
   def show_total_spent
@@ -42,13 +44,13 @@ module ApplicationHelper
     current_user.entities.each do |entity|
       total += entity.amount
     end
-    return total
+    total
   end
 
   def show_groups
     content = ''
     current_user.groups.each do |group|
-      content += 
+      content +=
         "<a href='/group/transactions?id=#{group.id}', class='groups'><div class='card d-flex flex-row'>
           <div class='card-body'>
             <h5 class='card-title mb-5'>#{group.name}</h5>
@@ -58,13 +60,13 @@ module ApplicationHelper
           </div>
         </div></a>"
     end
-    return content.html_safe
+    content.html_safe
   end
 
   def show_assigneable_groups
     content = ''
     current_user.groups.each do |group|
-      content += 
+      content +=
         "<a href='/external_transactions/assign?id=#{group.id}&entity_id=#{params[:entity_id]}', class='groups'><div class='card d-flex flex-row'>
           <div class='card-body'>
             <h5 class='card-title mb-5'>#{group.name}</h5>
@@ -74,14 +76,14 @@ module ApplicationHelper
           </div>
         </div></a>"
     end
-    return content.html_safe
+    content.html_safe
   end
 
   def show_group_transactions
     content = ''
     transactions = @group.entities.sort { |a, b| b <=> a }
     transactions.each do |entity|
-      content += 
+      content +=
         "<div class='card d-flex flex-row'>
           <div class='card-body'>
             <h5 class='card-title mb-5'>#{entity.name}</h5>
@@ -93,6 +95,6 @@ module ApplicationHelper
           </div>
         </div>"
     end
-    return content.html_safe
+    content.html_safe
   end
 end

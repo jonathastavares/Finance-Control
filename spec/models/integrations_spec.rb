@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require 'capybara/rails'
-# rubocop:disable Lint/UselessAssignment
 RSpec.describe 'Integrations', type: :system do
   describe 'Navigation' do
     it 'Shows main page after Log In' do
-      user = User.create!(username:'testuser')
+      user = User.create!(username: 'testuser')
       visit root_path
       fill_in 'username', with: user.username
       click_on 'Log In'
@@ -19,7 +20,7 @@ RSpec.describe 'Integrations', type: :system do
     end
 
     it 'New Transaction action' do
-      user = User.create!(username:'testuser')
+      user = User.create!(username: 'testuser')
       visit root_path
       fill_in 'username', with: user.username
       click_on 'Log In'
@@ -33,7 +34,7 @@ RSpec.describe 'Integrations', type: :system do
     end
 
     it 'New group action' do
-      user = User.create!(username:'testuser')
+      user = User.create!(username: 'testuser')
       visit root_path
       fill_in 'username', with: user.username
       click_on 'Log In'
@@ -46,7 +47,7 @@ RSpec.describe 'Integrations', type: :system do
     end
 
     it 'New Assignment' do
-      user = User.create!(username:'testuser')
+      user = User.create!(username: 'testuser')
       visit root_path
       fill_in 'username', with: user.username
       click_on 'Log In'
@@ -71,4 +72,3 @@ RSpec.describe 'Integrations', type: :system do
     end
   end
 end
-# rubocop:enable Lint/UselessAssignment
