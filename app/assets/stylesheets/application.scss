@@ -14,20 +14,50 @@
  *= require_self
  */
 body {
-  height: 968px;
+  min-height: 968px;
   background-image: linear-gradient(to bottom, #1f528b, #3778c2)
 }
 
-a:hover {
-  color: rgb(219, 219, 219) !important;
+a {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.white, th, td, .input-buttons {
+  color: white !important;
+}
+
+textarea {
+  color: #ff0000;
+}
+
+.amount-box {
+  background-color: white;
+  height: 50px;
+  p {
+    font-size: 1.5em;
+    margin: 0;
+  }
+}
+
+.title {
+  border-bottom: 1px white solid;
 }
 
 .left-menu-item {
   margin: 20px 0;
 }
 
+.btn-primary {
+  background-color: #1f528b !important;
+  width: 25%;
+  height: 60px;
+}
+
 .navbar {
   background-color: #3778c2;
+  height: 70px;
 }
 
 .navbar-title {
@@ -37,4 +67,21 @@ a:hover {
   text-decoration: none;
 }
 
- 
+.container {
+  padding: 0 !important;
+}
+
+.card {
+  border-radius: 0 !important;
+}
+
+.bottom-container {
+  height: 80px;
+  background-color: #5fb523;
+}
+
+.bottom-link {
+  align-self: center;
+  padding: 10px 125px !important;
+  border: 2px white solid !important;
+}

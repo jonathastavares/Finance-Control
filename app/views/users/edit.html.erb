@@ -1,19 +1,19 @@
-<h1 align="center" class="mb-4">Edit profile</h1>
+<h1 class="text-center white mb-3 pb-3 mt-2">Edit profile</h1>
 <div class="row">
   <div class="col">
     <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}, url: edit_user_path(@user.id), method: :update) do |f| %>
-      <div class='container text-center border border-primary rounded-pill border-3 w-25 text-center'>
+      <div class='container text-center p-2'>
         <div class="form-group">
           <div class="control-label col-sm-2 w-100">
-          <%= f.label :username %>
+          <%= f.label :username, class:'text-center white w-100 mb-3' %>
         </div>
         <div class="col-sm-8 w-100 d-flex justify-content-center mt-3 mb-3">
-          <%= f.text_field :username, class: "form-control w-75", placeholder: "Enter username", autofocus: true %>
+          <%= f.text_field :username, class: 'form-control mb-3 text-center', placeholder: "Enter username", autofocus: true %>
         </div>
       </div>
       <div class="form-group w-100">
-        <div class="col-sm-offset-2 col-sm-10 w-100 mb-2">
-          <%= f.submit "Edit Account", class: 'btn btn-primary btn-large w-50' %>
+        <div class="container bottom-container d-flex justify-content-center">
+          <%= f.submit 'Update Account', class: 'btn btn-outline-sucess bottom-link input-buttons', style: 'font-weight: 600;' %>
         </div>
       </div>
     </div>

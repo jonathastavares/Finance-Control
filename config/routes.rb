@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
   post 'entities', to: 'entities#create'
+  get 'transactions', to: 'entities#index'
+  get 'transactions/new', to: 'entities#new'
   resources :users do
     post 'edit', to: 'users#update'
     patch 'update', to: 'users#update'

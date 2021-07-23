@@ -1,43 +1,20 @@
-<h1 align="center">Finance Control</h1>
+<h5 class="text-center white mb-3 pb-3 mt-2"><%= @user.username %></h5>
 <div class="container w-100">
-  <div class="row">
-    <div class="left-box col border border-primary">
-      <div class="row left-menu-item">
-        <%= link_to 'My account', edit_user_path(current_user.id) %>
-      </div>
-      <div class="row left-menu-item">
-        <%= link_to 'All my transactions', root_path %>
-      </div>
-      <div class="row left-menu-item">
-        <%= link_to 'All my external transactions', root_path %>
-      </div>
-      <div class="row left-menu-item">
-        <%= link_to 'All groups', root_path %>
-      </div>
+  <div class="col p-4">
+    <div class="row left-menu-item title pb-2">
+      <%= link_to 'Edit account', edit_user_path(current_user.id) %>
     </div>
-    <div class="center-box col-9 border border-danger">
-      <h2 class="text-center"> Your Entities </h2>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Entity Number</th>
-            <th scope="col">Name</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Created at</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= show_entities %>
-        </tbody>
-      </table>
-      <h2 class="text-center"> New Entity </h2>
-      <%= form_for(@entity) do |form| %>
-        <%= form.label :name %>
-        <%= form.text_field :name, class: 'form-control', placeholder: 'Name' %>
-        <%= form.label :amount %>
-        <%= form.text_field :amount, class: 'form-control', placeholder: 'i.e: 20.57' %>
-        <%= form.submit 'Save', class: 'btn btn-primary' %>
-      <% end %>
+    <div class="row left-menu-item title pb-2">
+      <%= link_to 'All my transactions', transactions_path %>
+    </div>
+    <div class="row left-menu-item title pb-2">
+      <%= link_to 'All my external transactions', root_path %>
+    </div>
+    <div class="row left-menu-item title pb-2">
+      <%= link_to 'All groups', root_path %>
+    </div>
+    <div class="row left-menu-item title pb-2">
+      <%= link_to 'Logout', logout_path %>
     </div>
   </div>
 </div>
