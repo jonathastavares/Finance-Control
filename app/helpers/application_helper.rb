@@ -43,7 +43,7 @@ module ApplicationHelper
     current_user.entities.each do |entity|
       total += entity.amount
     end
-    total
+    total.round(2)
   end
 
   def show_groups

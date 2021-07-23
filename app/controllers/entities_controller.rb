@@ -1,4 +1,3 @@
-# rubocop:disable Lint/Syntax
 class EntitiesController < ApplicationController
   def new
     @entity = Entity.new
@@ -30,14 +29,14 @@ class EntitiesController < ApplicationController
   def assign
     @entity = Entity.find(params[:entity_id])
     return unless params[:id]
-      @entity.group_id = params[:id]
-      if @entity.save
-        flash[:notice] = 'You have assigned this transaction!'
-      else
-        flash[:alert] = 'Something went wrong, please try again'
-      end
-      redirect_to transactions_path
+
+    @entity.group_id = params[:id]
+    if @entity.save
+      flash[:notice] = 'You have assigned this transaction!'
+    else
+      flash[:alert] = 'Something went wrong, please try again'
     end
+    redirect_to transactions_path
   end
 
   def external_transactions; end
@@ -48,4 +47,3 @@ class EntitiesController < ApplicationController
     params.require(:entity).permit(:name, :amount)
   end
 end
-# rubocop:enable Lint/Syntax
