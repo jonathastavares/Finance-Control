@@ -19,7 +19,7 @@ class EntitiesController < ApplicationController
   end
 
   def destroy
-    @entity = Entity.find(params[:id])
+    @entity = Entity.find(params[:entity_id])
     if @entity.destroy
       flash[:notice] = 'You have deleted this transaction!'
       redirect_to transactions_path

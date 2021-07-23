@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def show_entities
+  def show_transactions
     content = ''
     entities = current_user.entities.reverse
     entities.each do |entity|
@@ -11,13 +11,14 @@ module ApplicationHelper
           </div>
           <div class='card-body'>
             <p class='card-text', style='font-weight: bolder;'>$ #{entity.amount}</p>
+            <a href='/transactions/delete?entity_id=#{entity.id}', class='groups btn btn-success', method: :delete, data-confirm='Are you sure to delete this item?'>Delete</a>
           </div>
         </div>"
     end
     return content.html_safe
   end
 
-  def show_external_entities
+  def show_external_transactions
     content = ''
     entities = current_user.external_transactions.reverse
     entities.each do |entity|
@@ -88,7 +89,7 @@ module ApplicationHelper
           </div>
           <div class='card-body'>
             <p class='card-text', style='font-weight: bolder;'>$ #{entity.amount}</p>
-            <a href='/external_transactions/assign?entity_id=#{entity.id}', class='groups btn btn-success'>Assign to another group</a>
+            <a href='/external_transactions/assign?entity_id=#{entity.id}', class='groups btn btn-success'>Re-Assign</a>
           </div>
         </div>"
     end
