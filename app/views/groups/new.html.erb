@@ -2,7 +2,7 @@
   <div class="container text-center p-2">
     <%= form_for(@group) do |form| %>
       <%= form.label :name, class:'text-center white w-100 mb-3', style:'font-weight: 600;' %>
-      <%= form.text_field :name, class: 'form-control mb-3 text-center', placeholder: 'Name' %>
+      <%= form.text_field :name, id:"name", class: 'form-control mb-3 text-center', placeholder: 'Name' %>
       <div class="container bottom-container d-flex justify-content-center">
         <%= form.submit 'Save', class: 'btn btn-outline-sucess bottom-link input-buttons', style: 'font-weight: 600;' %>
       </div>
