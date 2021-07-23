@@ -1,3 +1,4 @@
+# rubocop:disable Layout/LineLength
 module ApplicationHelper
   def show_transactions
     content = ''
@@ -96,3 +97,4 @@ module ApplicationHelper
     content.html_safe
   end
 end
+# rubocop:enable Layout/LineLength

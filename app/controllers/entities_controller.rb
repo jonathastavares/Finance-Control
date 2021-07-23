@@ -1,3 +1,4 @@
+# rubocop:disable Lint/Syntax
 class EntitiesController < ApplicationController
   def new
     @entity = Entity.new
@@ -47,3 +48,4 @@ class EntitiesController < ApplicationController
     params.require(:entity).permit(:name, :amount)
   end
 end
+# rubocop:enable Lint/Syntax
