@@ -99,3 +99,8 @@ textarea {
   padding: 10px 100px !important;
   border: 2px white solid !important;
 }
+
+.text-overflow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

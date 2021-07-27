@@ -51,7 +51,7 @@ module ApplicationHelper
     current_user.groups.each do |group|
       content +=
         "<a href='/group/transactions?id=#{group.id}', class='groups'><div class='card d-flex flex-row'>
-          <div class='card-body'>
+          <div class='card-body w-50'>
             <h5 class='card-title mb-5'>#{group.name}</h5>
           </div>
           <div class='card-body'>
@@ -67,7 +67,7 @@ module ApplicationHelper
     current_user.groups.each do |group|
       content +=
         "<a href='/external_transactions/assign?id=#{group.id}&entity_id=#{params[:entity_id]}', class='groups'><div class='card d-flex flex-row'>
-          <div class='card-body'>
+          <div class='card-body w-50'>
             <h5 class='card-title mb-5'>#{group.name}</h5>
           </div>
           <div class='card-body'>
@@ -84,7 +84,7 @@ module ApplicationHelper
     transactions.each do |entity|
       content +=
         "<div class='card d-flex flex-row'>
-          <div class='card-body'>
+          <div class='card-body w-50'>
             <h5 class='card-title mb-5'>#{entity.name}</h5>
             <p class='card-text'>Created by: #{entity.creator.username}</p>
           </div>
