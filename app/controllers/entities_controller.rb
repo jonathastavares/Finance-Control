@@ -18,6 +18,7 @@ class EntitiesController < ApplicationController
 
   def destroy
     @entity = Entity.find(params[:entity_id])
+    @entity.groups = []
     if @entity.destroy
       flash[:notice] = 'You have deleted this transaction!'
     else
@@ -29,9 +30,10 @@ class EntitiesController < ApplicationController
   def assign
     @entity = Entity.find(params[:entity_id])
     return unless params[:id]
-
-    @entity.group_id = params[:id]
-    if @entity.save
+    group = Group.find(params[:id])
+    @entity.groups << group
+    group.entities << @entity
+    if @entity.save && group.save
       flash[:notice] = 'You have assigned this transaction!'
     else
       flash[:alert] = 'Something went wrong, please try again'
