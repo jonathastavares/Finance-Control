@@ -23,10 +23,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    if @user.update(user_params)
+    if @user.username != params[:user][:username] && @user.update(user_params)
       flash[:notice] = 'Your account was updated successfully'
       redirect_to root_path
     else
+      flash[:alert] = 'Username already taken!'
       render 'edit'
     end
   end

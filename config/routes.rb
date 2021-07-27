@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'groups', to: 'groups#index'
   get 'groups/new', to: 'groups#new'
   get 'group/transactions', to: 'groups#transactions'
+  get 'groups/delete', to: 'groups#destroy'
   resources :users do
     post 'edit', to: 'users#update'
     patch 'update', to: 'users#update'

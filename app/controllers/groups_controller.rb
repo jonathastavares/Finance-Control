@@ -20,6 +20,17 @@ class GroupsController < ApplicationController
 
   def index; end
 
+  def destroy
+    @group = Group.find(params[:group_id])
+    @group.entities = []
+    if @group.creator.id == current_user.id && @group.destroy
+      flash[:notice] = 'Group deleted successfully!'
+    else
+      flash[:alert] = 'Something went wrong!'
+    end
+    redirect_to groups_path
+  end
+
   private
 
   def group_params

@@ -6,6 +6,11 @@ class EntitiesController < ApplicationController
   def create
     @entity = Entity.new(entity_params)
     @entity.user_id = current_user.id
+    if params[:group_id]
+      group = Group.find(params[:group_id])
+      @entity.groups << group
+      group.entities << @entity
+    end
     if @entity.save
       flash[:notice] = 'New transaction created!'
     else
@@ -19,7 +24,7 @@ class EntitiesController < ApplicationController
   def destroy
     @entity = Entity.find(params[:entity_id])
     @entity.groups = []
-    if @entity.destroy
+    if @entity.creator.id == current_user.id && @entity.destroy
       flash[:notice] = 'You have deleted this transaction!'
     else
       flash[:alert] = 'Something went wrong, please try again'
