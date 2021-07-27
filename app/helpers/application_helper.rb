@@ -6,7 +6,7 @@ module ApplicationHelper
     entities.each do |entity|
       content +=
         "<div class='card d-flex flex-row'>
-          <div class='card-body'>
+          <div class='card-body w-50'>
             <h5 class='card-title mb-5'>#{entity.name}</h5>
             <p class='card-text'>#{entity.created_at}</p>
           </div>
@@ -25,7 +25,7 @@ module ApplicationHelper
     entities.each do |entity|
       content +=
         "<div class='card d-flex flex-row'>
-          <div class='card-body'>
+          <div class='card-body w-50'>
             <h5 class='card-title mb-5'>#{entity.name}</h5>
             <p class='card-text'>#{entity.created_at}</p>
           </div>
