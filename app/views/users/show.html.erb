@@ -2,19 +2,24 @@
 <div class="container w-100">
   <div class="col p-4">
     <div class="row left-menu-item title pb-2">
-      <%= link_to 'Edit account', edit_user_path(current_user.id) %>
+      <i class="fas fa-cog icon"></i>
+      <%= link_to 'Edit account', edit_user_path(current_user.id), class:'link' %>
     </div>
     <div class="row left-menu-item title pb-2">
-      <%= link_to 'All my transactions', transactions_path %>
+      <i class="fas fa-cash-register icon"></i>
+      <%= link_to 'All my transactions', transactions_path, class:'link' %>
     </div>
     <div class="row left-menu-item title pb-2">
-      <%= link_to 'All my external transactions', external_transactions_path %>
+      <i class="far fa-money-bill-alt icon"></i>
+      <%= link_to 'All my external transactions', external_transactions_path, class:'link' %>
     </div>
     <div class="row left-menu-item title pb-2">
-      <%= link_to 'All groups', groups_path %>
+      <i class="fas fa-layer-group icon"></i>
+      <%= link_to 'All groups', groups_path, class:'link' %>
     </div>
     <div class="row left-menu-item title pb-2">
-      <%= link_to 'Logout', logout_path %>
+      <i class="fas fa-sign-out-alt icon"></i>
+      <%= link_to 'Logout', logout_path, class:'link' %>
     </div>
   </div>
 </div>

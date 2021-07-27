@@ -3,6 +3,7 @@
 # Finance Control App
 
 > This is a Finance control app project, built for learning purposes, as my capstrone project at Microverse.
+> The Design idea was originally created by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 > In this project, I managed associations between Models, created methods for Groups and Transactions, and some helpers.
 
 ![screenshot](/screenshot.jpg)
