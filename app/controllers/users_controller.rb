@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome to Finance Control #{@user.username}"
       redirect_to root_path
     else
-      render 'new'
+      redirect_to new_user_path
     end
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    if @user.username != params[:user][:username] && @user.update(user_params)
+    if @user.update(user_params)
       flash[:notice] = 'Your account was updated successfully'
       redirect_to root_path
     else
@@ -53,6 +53,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username)
+    params.require(:user).permit(:username, :image)
   end
 end

@@ -22,6 +22,14 @@ module ApplicationHelper
     content.html_safe
   end
 
+  def img_path
+    if @user.image.attached?
+      @user.image
+    else
+      src='default-profile.png'
+    end
+  end
+
   def show_external_transactions
     content = ''
     entities = current_user.external_transactions.reverse
