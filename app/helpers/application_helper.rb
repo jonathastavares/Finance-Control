@@ -8,7 +8,7 @@ module ApplicationHelper
         "<div class='card d-flex flex-row'>
           <div class='card-body w-50'>
             <div class='w-100 d-flex'>
-              <img src='', alt='', style='width: 75px; height: 75px;'>
+              <img #{entity_img_path(entity)}, class='group-image' %>
               <h5 class='card-title w-75'>#{entity.name}</h5>
             </div>
             <p class='card-text'>#{entity.created_at}</p>
@@ -22,11 +22,27 @@ module ApplicationHelper
     content.html_safe
   end
 
-  def img_path
+  def profile_img_path
     if @user.image.attached?
       @user.image
     else
       src='default-profile.png'
+    end
+  end
+
+  def group_img_path(group)
+    if group.image.attached?
+      "src='#{url_for(group.image)}'".html_safe
+    else
+      "src='/assets/default-group.jpg'".html_safe
+    end
+  end
+
+  def entity_img_path(entity)
+    if entity.groups.any? && entity.groups[0].image.attached?
+      "src='#{url_for(entity.groups[0].image)}'".html_safe
+    else
+      "src='/assets/default-group.jpg'".html_safe
     end
   end
 
@@ -38,14 +54,14 @@ module ApplicationHelper
         "<div class='card d-flex flex-row'>
           <div class='card-body w-50'>
             <div class='w-100 d-flex'>
-              <img src='', alt='', style='width: 75px; height: 75px;'>
+              <img #{entity_img_path(entity)}, class='group-image' %>
               <h5 class='card-title w-75'>#{entity.name}</h5>
             </div>
             <p class='card-text'>#{entity.created_at}</p>
           </div>
           <div class='card-body'>
             <p class='card-text', style='font-weight: bolder;'>$ #{entity.amount}</p>
-            <a href='/transactions/delete?entity_id=#{entity.id}', class='groups btn btn-success', method: :delete, data-confirm='Are you sure to delete this item?'>Delete</a>
+            <a href='/external_transactions/assign?entity_id=#{entity.id}', class='groups btn btn-success'>Assign</a>
           </div>
         </div>"
     end
@@ -66,7 +82,7 @@ module ApplicationHelper
       content +=
         "<a href='/group/transactions?id=#{group.id}', class='groups w-75'><div class='card d-flex flex-row'>
           <div class='card-body justify-content-flex-end d-flex'>
-            <img src='', alt='', style='width: 75px; height: 75px;'>
+            <img #{group_img_path(group)}, class='group-image' %>
             <h5 class='card-title w-75'>#{group.name}</h5>
           </div>
           <div class='card-body'>
@@ -83,8 +99,9 @@ module ApplicationHelper
     current_user.groups.each do |group|
       content +=
         "<a href='/external_transactions/assign?id=#{group.id}&entity_id=#{params[:entity_id]}', class='groups'><div class='card d-flex flex-row'>
-          <div class='card-body w-50'>
-            <h5 class='card-title mb-5'>#{group.name}</h5>
+          <div class='card-body justify-content-flex-end d-flex'>
+            <img #{group_img_path(group)}, class='group-image' %>
+            <h5 class='card-title w-75'>#{group.name}</h5>
           </div>
           <div class='card-body'>
             <p class='card-text'>Transactions: #{group.entities.length}</p>
@@ -99,9 +116,10 @@ module ApplicationHelper
     current_user.groups.each do |group|
       content +=
         "<div class='card d-flex flex-row'>
-          <div class='card-body w-50'>
-            <input type='checkbox', name='group_id', value='#{group.id}'>
-            <h5 class='card-title mb-5'>#{group.name}</h5>
+          <div class='card-body w-100 d-flex align-items-center'>
+            <input type='checkbox', name='#{group.name}', value='#{group.id}', { multiple: true }>
+            <img #{group_img_path(group)}, class='group-image ml-2 mr-2' %>
+            <h5 class='card-title w-75'>#{group.name}</h5>
           </div>
           <div class='card-body'>
             <p class='card-text'>Transactions: #{group.entities.length}</p>

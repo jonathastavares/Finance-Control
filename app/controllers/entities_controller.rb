@@ -6,12 +6,13 @@ class EntitiesController < ApplicationController
   def create
     @entity = Entity.new(entity_params)
     @entity.user_id = current_user.id
-    if params[:group_id]
-      group = Group.find(params[:group_id])
-      @entity.groups << group
-      group.entities << @entity
-    end
     if @entity.save
+      current_user.groups.each do |group|
+        if params[group.name]
+          @entity.groups << group
+          group.entities << @entity
+        end
+      end
       flash[:notice] = 'New transaction created!'
     else
       flash[:alert] = 'Something went wrong!'
