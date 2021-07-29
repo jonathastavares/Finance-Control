@@ -49,20 +49,17 @@ RSpec.describe 'Integrations', type: :system do
       visit root_path
       fill_in 'username', with: user.username
       click_on 'Log In'
-      click_on 'All my transactions'
-      click_on 'New Transaction'
-      fill_in 'name', with: 'Integration Test Transaction'
-      fill_in 'amount', with: '20.00'
-      click_on 'Save'
-      visit root_path
       click_on 'All groups'
       click_on 'New Group'
       fill_in 'name', with: 'New Group'
       click_on 'Save'
       visit root_path
-      click_on 'All my external transactions'
-      click_on 'Assign'
-      click_on 'New Group'
+      click_on 'All my transactions'
+      click_on 'New Transaction'
+      fill_in 'name', with: 'Integration Test Transaction'
+      fill_in 'amount', with: '20.00'
+      check 'checkbox'
+      click_on 'Save'
       visit root_path
       click_on 'All groups'
       sleep(1)

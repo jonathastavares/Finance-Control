@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
       user = User.create!(username: 'testuser')
       entity = Entity.create!(name: 'testentity', amount: '0', user_id: user.id)
       expect(user.entities).to eq([entity])
+      expect(user.groups).to_not eq(entity)
     end
   end
   context 'User/Groups relations' do
@@ -12,6 +13,7 @@ RSpec.describe User, type: :model do
       user = User.create!(username: 'testuser')
       group = Group.create!(name: 'testgroup', user_id: user.id)
       expect(user.groups).to eq([group])
+      expect(user.groups).to_not eq(group)
     end
   end
 end

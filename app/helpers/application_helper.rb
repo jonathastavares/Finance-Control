@@ -100,7 +100,7 @@ module ApplicationHelper
       content +=
         "<div class='card d-flex flex-row'>
           <div class='card-body w-100 d-flex align-items-center'>
-            <input type='checkbox', name='#{group.name}', value='#{group.id}', { multiple: true }>
+            <input type='checkbox', name='#{group.name}', value='#{group.id}', { multiple: true }, id='checkbox'>
             <img #{group_img_path(group)}, class='group-image ml-2 mr-2' %>
             <h5 class='card-title w-75'>#{group.name}</h5>
           </div>
