@@ -34,7 +34,7 @@ module ApplicationHelper
     if group.image.attached?
       "src='#{url_for(group.image)}'".html_safe
     else
-      "src='default-group.jpg'".html_safe
+      "src='/assets/default-group.jpg'".html_safe
     end
   end
 
@@ -42,7 +42,7 @@ module ApplicationHelper
     if entity.groups.any? && entity.groups[0].image.attached?
       "src='#{url_for(entity.groups[0].image)}'".html_safe
     else
-      "src='default-group.jpg'".html_safe
+      "src='/assets/default-group.jpg'".html_safe
     end
   end
 
