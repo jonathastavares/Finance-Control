@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'transactions/delete', to: 'entities#destroy'
   get 'external_transactions', to: 'entities#external_transactions'
   get 'external_transactions/assign', to: 'entities#assign'
+  post '/external_transactions/external_transactions/assign', to: 'entities#call_assign'
   post 'groups', to: 'groups#create'
   get 'groups', to: 'groups#index'
   get 'groups/new', to: 'groups#new'

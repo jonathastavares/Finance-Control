@@ -1,4 +1,9 @@
 <div class="container p-2">
-  <h2 class="text-center white mb-4"> Select a group to assign </h2>
-  <%= show_assigneable_groups %>
+  <h2 class="text-center white mb-4"> Select groups to assign </h2>
+  <%= form_for(@relation, url: "external_transactions/assign?entity_id=#{params[:entity_id]}") do |form| %>
+    <%= show_assigneable_groups %>
+    <div class="container bottom-container d-flex justify-content-center">
+      <%= form.submit 'Save', class: 'btn btn-outline-sucess bottom-link input-buttons', style: 'font-weight: 600;' %>
+    </div>
+  <% end %>
 </div>
