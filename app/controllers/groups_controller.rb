@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user_id = current_user.id
     if @group.save
-      flash[:notice] = 'New transaction created!'
+      flash[:notice] = 'New Group created!'
     else
       flash[:alert] = 'Something went wrong!'
     end
