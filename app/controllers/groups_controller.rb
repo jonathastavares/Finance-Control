@@ -22,7 +22,11 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:group_id])
-    @group.entities = []
+    @group.relations.each do |relation|
+      entity = Entity.find(relation.entity_id)
+      entity.group_id = nil
+      entity.save
+    end
     if @group.creator.id == current_user.id && @group.destroy
       flash[:notice] = 'Group deleted successfully!'
     else

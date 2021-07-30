@@ -1,4 +1,5 @@
 require 'rails_helper'
+# rubocop:disable Lint/UselessAssignment
 RSpec.describe Entity, type: :model do
   context 'Entity/User relations' do
     it 'Checks associations between Entities and User' do
@@ -22,3 +23,4 @@ RSpec.describe Entity, type: :model do
     end
   end
 end
+# rubocop:enable Lint/UselessAssignment

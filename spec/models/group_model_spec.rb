@@ -1,4 +1,5 @@
 require 'rails_helper'
+# rubocop:disable Lint/UselessAssignment
 RSpec.describe Group, type: :model do
   context 'Group/User relations' do
     it 'Checks associations between Groups and User' do
@@ -22,3 +23,4 @@ RSpec.describe Group, type: :model do
     end
   end
 end
+# rubocop:enable Lint/UselessAssignment

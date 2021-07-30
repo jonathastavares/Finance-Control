@@ -3,5 +3,5 @@ class Group < ApplicationRecord
   has_many :relations, dependent: :destroy
   has_many :entities, through: :relations
   has_one_attached :image, dependent: :destroy
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: true }
 end

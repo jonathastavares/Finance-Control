@@ -1,5 +1,5 @@
 class EntitiesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:assign_entity, :call_assign]
+  skip_before_action :verify_authenticity_token, only: %i[assign_entity call_assign]
   def new
     @entity = Entity.new
   end
@@ -15,17 +15,14 @@ class EntitiesController < ApplicationController
     end
     redirect_to transactions_path
   end
-  
+
   def assign_entity
     current_user.groups.each do |group|
-      if params[group.name] && !group.entities.include?(@entity)
-        @relation = Relation.create!(entity_id: @entity.id, group_id: group.id)
-        @entity.group_id = @entity.groups[0].id
-        @entity.save
-        flash[:notice] = 'You have assigned this transaction!'
-      else
-        flash[:alert] = 'Something went wrong, please try again'
-      end
+      next unless params[group.name] && !group.entities.include?(@entity)
+
+      @relation = Relation.create!(entity_id: @entity.id, group_id: group.id)
+      @entity.group_id = @entity.groups[0].id
+      @entity.save
     end
   end
 
@@ -49,7 +46,8 @@ class EntitiesController < ApplicationController
   def call_assign
     @entity = Entity.find(params[:entity_id])
     assign_entity
-    redirect_to transactions_path
+    flash[:notice] = 'Updated successfully!'
+    redirect_to external_transactions_path
   end
 
   def external_transactions; end
