@@ -1,0 +1,29 @@
+<h1 class="text-center white mt-4 mb-4">SIGN UP</h1>
+<div class="row">
+  <div class="col">
+    <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}, url: signup_path) do |f| %>
+      <div class='container text-center p-2'>
+        <div class="form-group">
+          <div class="control-label col w-100 mb-3 justify-content-center white">
+            <%= f.label "Profile picture", class:'text-center white mb-2' %>
+            <%= f.file_field :image %>
+          </div>
+          <div class="control-label col-sm-2 w-100">
+            <%= f.label :username, class:'white' %>
+          </div>
+          <div class="col-sm-8 w-100 d-flex justify-content-center mt-3 mb-3">
+            <%= f.text_field :username, class: "form-control w-75", placeholder: "Enter username", autofocus: true %>
+          </div>
+        </div>
+        <div class="form-group w-100">
+          <div class="container bottom-container d-flex justify-content-center">
+            <%= f.submit 'Create Account', class: 'btn btn-outline-sucess bottom-link input-buttons', style: 'font-weight: 600;' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col text-center mt-2">
+      <%= link_to 'Already have an account? Log In!', login_path %>
+    </div> 
+  </div>
+</div>

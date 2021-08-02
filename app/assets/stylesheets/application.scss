@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  min-height: 968px;
+  background-image: linear-gradient(to bottom, #1f528b, #3778c2);
+}
+
+a {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.groups {
+  color: black !important;
+}
+
+.white,
+th,
+td,
+.input-buttons {
+  color: white !important;
+}
+
+textarea {
+  color: #f00;
+}
+
+.amount-box {
+  background-color: white;
+  height: 50px;
+
+  p {
+    font-size: 1.5em;
+    margin: 0;
+  }
+}
+
+.title {
+  border-bottom: 1px white solid;
+}
+
+.left-menu-item {
+  margin: 20px 0;
+}
+
+.btn-primary {
+  background-color: #1f528b !important;
+  width: 25%;
+  height: 60px;
+}
+
+.navbar {
+  background-color: #3778c2;
+  height: 70px;
+}
+
+.navbar-title {
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.container {
+  padding: 0 !important;
+}
+
+.user-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px white solid;
+}
+
+.group-image {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.card {
+  border-radius: 0 !important;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  align-self: center !important;
+}
+
+.bottom-container {
+  height: 80px;
+  background-color: #5fb523;
+}
+
+.btn-success {
+  background-color: #5fb523 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.bottom-link {
+  align-self: center;
+  padding: 10px 100px !important;
+  border: 2px white solid !important;
+}
+
+.text-overflow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.icon {
+  color: white !important;
+  width: 20px !important;
+  height: 20px !important;
+  padding: 4px !important;
+}
+
+.link {
+  width: 250px !important;
+}

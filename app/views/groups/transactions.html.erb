@@ -1,0 +1,7 @@
+<div class="container p-2">
+  <h2 class="text-center white mb-4 text-overflow"> All <%= @group.name %>'s transactions </h2>
+  <%= show_group_transactions %>
+  <div class="container bottom-container d-flex justify-content-center">
+    <%= link_to 'Back to groups', groups_path, class:'bottom-link btn btn-outline-success' %>
+  </div>
+</div>
